@@ -1,56 +1,65 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import { Typography } from "@mui/material";
+import { Box } from "@mui/system";
+import { Route, Routes } from "react-router-dom";
+import { Layout } from "./components/Layout";
+import { UserList } from "./features/users/ListUser";
+import { UserCreate } from "./features/users/CreateUser";
+import { UserEdit } from "./features/users/EditUser";
+
+// import { ProtectedRoute } from "./components/ProtectedRoute";
+// import Login from "./components/Login";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div data-testid="app">
+      <Layout>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Box sx={{ color: "text.primary" }}>
+                <Typography variant="h1">Home</Typography>
+              </Box>
+            }
+          />
+
+          {/* Users */}
+          <Route
+            path="/users"
+            element={
+              <Box sx={{ color: "text.primary" }}>
+                <UserList />
+              </Box>
+            }
+          />
+          <Route
+            path="/users/create"
+            element={
+              <Box sx={{ color: "text.primary" }}>
+                <UserCreate />
+              </Box>
+            }
+          />
+          <Route
+            path="/users/edit/:id"
+            element={
+              <Box sx={{ color: "text.primary" }}>
+                <UserEdit />
+              </Box>
+            }
+          />
+
+          <Route
+            path="*"
+            element={
+              <Box sx={{ color: "text.primary" }}>
+                <Typography variant="h1">404</Typography>
+                <Typography variant="h2">Page not found</Typography>
+              </Box>
+            }
+          />
+        </Routes>
+      </Layout>
     </div>
   );
 }
