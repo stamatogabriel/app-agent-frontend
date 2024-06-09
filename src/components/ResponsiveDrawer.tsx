@@ -21,7 +21,7 @@ type Props = {
 export default function ResponsiveDrawer({ open, onClose }: Props) {
   const routes = [
     { path: "/users", name: "Usuários" },
-    { path: "/tourism-agency", name: "Agências de turismo" },
+    { path: "/tourism-agencies", name: "Agências de turismo" },
     { path: "/airlines", name: "Companhias aéreas" },
     { path: "/travel-packages", name: "Pacotes de viagens" },
     { path: "/travels", name: "Viagens" },
