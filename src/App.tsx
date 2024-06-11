@@ -11,6 +11,9 @@ import { AirlineEdit } from "./features/airlines/EditAirline";
 import { TourismAgenciesList } from "./features/tourism_agency/ListTourismAgency";
 import { TourismAgencyCreate } from "./features/tourism_agency/CreateTourismAgency";
 import { TourismAgencyEdit } from "./features/tourism_agency/EditTourismAgency";
+import { TravelPackagesList } from "./features/travel_package/ListTravelPackages";
+import { TravelPackageCreate } from "./features/travel_package/CreateTravelPackages";
+import { TravelPackageEdit } from "./features/travel_package/EditTravelPackages";
 
 // import { ProtectedRoute } from "./components/ProtectedRoute";
 // import Login from "./components/Login";
@@ -106,6 +109,33 @@ function App() {
               </Box>
             }
           />
+
+          {/* Travel Packages */}
+          <Route
+            path="/travel-packages"
+            element={
+              <Box sx={{ color: "text.primary" }}>
+                <TravelPackagesList />
+              </Box>
+            }
+          />
+          <Route
+            path="/travel-packages/create"
+            element={
+              <Box sx={{ color: "text.primary" }}>
+                <TravelPackageCreate />
+              </Box>
+            }
+          />
+          <Route
+            path="/travel-packages/edit/:id"
+            element={
+              <Box sx={{ color: "text.primary" }}>
+                <TravelPackageEdit />
+              </Box>
+            }
+          />
+
 
           <Route
             path="*"

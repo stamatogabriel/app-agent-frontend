@@ -3,7 +3,7 @@ import { IAirline } from './Airline';
 import { ITravelPackage } from './TravelPackage';
 
 export interface ITravel {
-  _id: string;
+  _id?: string;
   client_id: string;
   travel_package_id: string;
   flights: IFlight[];

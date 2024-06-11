@@ -1,5 +1,5 @@
 export interface ITravelPackage {
-  _id: string;
+  _id?: string;
   name: string;
   itinerary: IItinerary[];
 }
