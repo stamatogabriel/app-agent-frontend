@@ -3,17 +3,17 @@ import {
   AutocompleteRenderInputParams,
   TextField,
 } from "@mui/material";
-// import { CastMember } from "../types/CastMembers";
-// import { Category } from "../types/Category";
-// import { Genre } from "../types/Genres";
+import { IAirline } from "../types/Airline";
+import { IUser } from "../types/User";
+import { ITravelPackage } from "../types/TravelPackage";
 
 type Props = {
   name: string;
   label: string;
   isLoading: boolean;
   isDisabled: boolean;
-  values?: [] // (Genre | Category | CastMember)[];
-  options?: [] // (Genre | Category | CastMember)[];
+  values?: (IAirline | IUser | ITravelPackage)[]
+  options?: (IAirline | IUser | ITravelPackage)[]
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -28,23 +28,23 @@ export const AutoCompleteFields = ({
 }: Props) => {
   const renderOptions = (
     props: React.HTMLAttributes<HTMLLIElement>,
-    option: any //Category | Genre | CastMember
+    option: IAirline | IUser | ITravelPackage
   ) => (
-    <li {...props} key={option.id}>
+    <li {...props} key={option._id}>
       {option.name}
     </li>
   );
 
   const isEqualId = (
-    option: any, // Genre | Category | CastMember,
-    value: any // Genre | Category | CastMember
+    option: IAirline | IUser | ITravelPackage,
+    value: IAirline | IUser | ITravelPackage
   ) => {
-    return option.id === value.id;
+    return option._id === value._id;
   };
 
   const handleOnChange = (
     _e: React.ChangeEvent<{}>,
-    newValue: any //(Genre | Category | CastMember)[]
+    newValue: (IAirline | IUser | ITravelPackage)[]
   ) => {
     handleChange({ target: { name, value: newValue } } as any);
   };

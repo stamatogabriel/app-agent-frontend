@@ -1,4 +1,7 @@
+import { IAirlineReturn } from "../../types/Airline";
 import { ITravel, TravelReturn, ITravelParams } from "../../types/Travel";
+import { ITravelPackageReturn } from "../../types/TravelPackage";
+import { IUserReturn } from "../../types/User";
 import { apiSlice } from "../api/apiSlice";
 
 const endpointUrl = '/travels'
@@ -58,9 +61,21 @@ function getTravel({ id }: { id: string }) {
   return `${endpointUrl}/${id}`
 }
 
+function getAllTravelPackages() {
+  return '/travel-packages'
+}
+
+function getAllUsers() {
+  return '/users'
+}
+
+function getAllAirlines() {
+  return '/airlines'
+}
+
 export const travelSlice = apiSlice.injectEndpoints({
   endpoints: ({ query, mutation }) => ({
-    getTravels: query<ITravelParams, TravelReturn>({
+    getTravels: query<TravelReturn, ITravelParams>({
       query: getTravels,
       providesTags: ['Travel'],
     }),
@@ -80,6 +95,18 @@ export const travelSlice = apiSlice.injectEndpoints({
       query: getTravel,
       providesTags: ['Travel'],
     }),
+    getAllTravelPackages: query<ITravelPackageReturn, void>({
+      query: getAllTravelPackages,
+      providesTags: ['TravelPackages'],
+    }),
+    getAllUsers: query<IUserReturn, void>({
+      query: getAllUsers,
+      providesTags: ['Users'],
+    }),
+    getAllAirlines: query<IAirlineReturn, void>({
+      query: getAllAirlines,
+      providesTags: ['Airlines'],
+    }),
   })
 })
 
@@ -89,4 +116,7 @@ export const {
   useCreateTravelMutation,
   useUpdateTravelMutation,
   useGetTravelQuery,
+  useGetAllTravelPackagesQuery,
+  useGetAllUsersQuery,
+  useGetAllAirlinesQuery,
 } = travelSlice

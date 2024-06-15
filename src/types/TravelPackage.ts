@@ -2,6 +2,7 @@ export interface ITravelPackage {
   _id?: string;
   name: string;
   itinerary: IItinerary[];
+  tourism_agency_id: string;
 }
 
 export interface IItinerary {

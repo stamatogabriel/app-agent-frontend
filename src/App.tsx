@@ -14,6 +14,8 @@ import { TourismAgencyEdit } from "./features/tourism_agency/EditTourismAgency";
 import { TravelPackagesList } from "./features/travel_package/ListTravelPackages";
 import { TravelPackageCreate } from "./features/travel_package/CreateTravelPackages";
 import { TravelPackageEdit } from "./features/travel_package/EditTravelPackages";
+import { TravelsList } from "./features/travels/ListTravels";
+import { TravelCreate } from "./features/travels/CreateTravel";
 
 // import { ProtectedRoute } from "./components/ProtectedRoute";
 // import Login from "./components/Login";
@@ -132,6 +134,24 @@ function App() {
             element={
               <Box sx={{ color: "text.primary" }}>
                 <TravelPackageEdit />
+              </Box>
+            }
+          />
+
+          {/* Tavels */}
+          <Route
+            path="/travels"
+            element={
+              <Box sx={{ color: "text.primary" }}>
+                <TravelsList />
+              </Box>
+            }
+          />
+          <Route
+            path="/travels/create"
+            element={
+              <Box sx={{ color: "text.primary" }}>
+                <TravelCreate />
               </Box>
             }
           />

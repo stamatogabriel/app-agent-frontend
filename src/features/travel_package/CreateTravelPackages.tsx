@@ -14,6 +14,7 @@ export const TravelPackageCreate = () => {
   const [travelPackageState, setTravelPackageState] = useState<ITravelPackage>({
     name: "",
     itinerary: [],
+    tourism_agency_id: "",
   });
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {

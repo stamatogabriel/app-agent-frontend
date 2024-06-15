@@ -19,6 +19,7 @@ export const TravelPackageEdit = () => {
     _id: "",
     name: "",
     itinerary: [],
+    tourism_agency_id: "",
   });
 
   const { enqueueSnackbar } = useSnackbar();
